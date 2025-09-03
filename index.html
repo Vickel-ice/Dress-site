@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>V-Dresses</title>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+            
+            :root {
+                --primary-color: #4B2C52;
+                --secondary-color: #B0E0E6;
+                --text-color: #333;
+                --font-heading: 'Playfair Display', serif;
+                --font-body: 'Roboto', sans-serif;
+                --gap-spacing: 20px;
+                --section-padding: 40px;
+                --container-max-width: 1140px;
+            }
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: white;
+                color: #333;
+                padding: 20px;
+                transition: none;
+                scroll-behavior: smooth;
+            }
+            .container {
+                max-width: 1140px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+            nav {
+                background-color: #4B2C52;
+                padding: 20px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                
+            }
+            
+            .header-name {
+                color: #f5f5f5;
+                font-size: 30px;
+                font-weight: bold;
+                font-family: 'Playfair Display', serif;
+           }
+           .topdiv {
+            display: flex;
+            gap: 10px;
+           }
+          
+           
+           .topmenu {
+            color: #B0E0E6;
+            padding: 10px;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bolder;
+            transition: color 0.3s ease;
+           }
+           .topmenu:hover {
+            color: white;
+           }
+         
+           
+           #Hero-Section {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            background-image: url(/Images/Hero.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-top: 60px;
+            border-radius: 8px;
+        }
+        #Hero-Section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+        .hero-left h1 {
+            font-size: 50px;
+            text-align: center;
+            position: relative;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            text-align: center;
+            line-height: 1.6;
+            
+        }
+        .hero-content a {
+            font-weight: bold;
+            padding: 10px;
+            color: #fff;
+        }
+        @media (max-width: 767px) {
+            .topdiv {
+                display: none;
+            }
+        }
+        @media (min-width: 768px) {
+            .topdiv {
+                display: flex;
+            }
+        }
+
+        /** CSS for scroll-in animation */
+        .animate-on scroll {
+            opacity: 0;
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+        /*.slide-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        } */
+        .slide-left {
+            transform: translateX(-100px);
+        }
+        .slide-right {
+            transform: translateX(100px);
+        }
+        
+        
+        .is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* You can also add delays to create the staggered, row-by-row effect */
+        .collection-grid .product-card:nth-child(1) { transition-delay: 0s; }
+        .collection-grid .product-card:nth-child(2) { transition-delay: 0.3s; }
+        .collection-grid .product-card:nth-child(3) { transition-delay: 0.6s; }
+        .collection-grid .product-card:nth-child(4) { transition-delay: 0.9s; }
+
+        #Gallery img:nth-child(2) { transition-delay: 0s; }
+        #Gallery img:nth-child(3) { transition-delay: 0.05s; }
+        #Gallery img:nth-child(4) { transition-delay: 0.1s; }
+        #Gallery img:nth-child(5) { transition-delay: 0.15s; }
+        #Gallery img:nth-child(6) { transition-delay: 0.2s; }
+        #Gallery img:nth-child(7) { transition-delay: 0.25s; }
+        #Gallery img:nth-child(8) { transition-delay: 0.3s; }
+        #Gallery img:nth-child(9) { transition-delay: 0.35s; }
+        #Gallery img:nth-child(10) { transition-delay: 0.4s; }
+        #Gallery img:nth-child(11) { transition-delay: 0.45s; }
+        #Gallery img:nth-child(12) { transition-delay: 0.5s; }
+        #Gallery img:nth-child(13) { transition-delay: 0.55s; }
+        #Gallery img:nth-child(14) { transition-delay: 0.6s; }
+        #Gallery img:nth-child(15) { transition-delay: 0.65s; }
+        /*End */
+
+       /* h1 {
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px; */
+
+        #Collection {
+            background-color: #f5f5f5;
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 10px;
+            
+        }
+        .collection-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+           
+        .product-card {
+            text-align: center;
+            width: 280px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 0;
+            transition: transform 0.3s ease-in-out,box-shadow 0.3s ease-in-out;
+      
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+          
+        .product-card img{
+            height: 250px;
+            width: 250px;
+            padding: 0;
+            margin-top: 0;
+            object-fit: cover;
+        }
+        .product-card h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        .product-card p {
+            font-family: 'Roboto', sans-serif;
+        }
+        @media (max-width: 600px) {
+            .product-card {
+                width: 100%;
+            }
+        }
+
+        #Gallery {
+                background-color: #f5f5f5;
+                margin-top: 40px;
+                padding: 40px;
+                border-radius: 10px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            #Gallery img {
+                height: 350px;
+                width: 100%;
+                display: block;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                transition: opacity 0.8s ease-out, transform 0.3s ease-in-out;
+            }
+         
+            
+         
+            @media (max-width: 768px) {
+                #Gallery {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (max-width:480px) {
+                #Gallery {
+                    grid-template-columns: 1fr;
+                }
+            }
+            #About {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                padding: 20px;
+                margin-top: 40px;
+                background-color: #f5f5f5;
+                border-radius: 10px;
+            }
+            .text-content {
+                flex: 1;
+                max-width: 600px;
+                text-align: center;
+            }
+            .text-content h1 {
+                font-family: 'Playfair Display', serif;
+            }
+            .text-content p {
+                font-family: 'Roboto', sans-serif;
+                line-height: 1.6;
+            }
+            .image {
+                flex-shrink: 0;
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+            }
+            .image img {
+                width: 70%;
+                height: 400px;
+                display: block;
+                border-radius: 8px;
+            }
+            .floated-image {
+                float: right;
+                width: 50%;
+                margin-left: 20px;
+            }
+            @media (max-width: 768px) {
+                #About {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+            }
+            #Contact{
+                background-color: #f5f5f5;
+                text-align: center;
+                border-radius: 10px;
+                justify-content: center;
+                line-height: 1.6;
+            }
+            .contact-header {
+                font-family: 'Platfair Display', serif;
+            }
+            .contact-p {
+                font-family: 'Roboto', sans-serif;
+            }
+            .Links a {
+                padding: 0 10px;
+                text-decoration: none;
+                color: #4B2C52;
+                transition: color 0.3s ease;
+            }
+            .Links a:hover {
+                color: #B0E0E6;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .footer p {
+                font-family: 'Roboto', sans-serif;
+            }
+
+
+           
+        </style>
+    </head>
+    <body>
+        <!--Header Section-->
+        <nav>
+            <div id="home">
+                <div class="header-name">
+                    V-Dresses
+                </div>
+                <div class="topdiv">
+                    <a class="topmenu" href="#Home">Home</a>
+                    <a class="topmenu" href="#Collection">Collection</a>
+                    <a class="topmenu" href="#Gallery">Gallery</a>
+                    <a class="topmenu" href="#About">About Us</a>
+                    <a class="topmenu" href="#Contact">Contact Us</a>
+                </div>
+            </div>
+        </nav>
+        <!--Hero Section-->
+        <div id="Hero-Section">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1>Elegance in Every Style</h1>
+                </div>
+                <div class="hero-right">
+                    <p>Discover your perfect dress for any occasion, crafted with passion and style.</p>
+                </div>
+                <a href="#Collection">View our Collection</a>
+            </div>
+        </div>
+        <!--Collection-->
+        
+        <div class="container">
+        <h1>Our Signature Collection</h1>
+        <section id="Collection">
+            <div class="collection-grid">
+                <div class="product-card animate-on-scroll slide-left">
+                    <img src="/Images/cd 1.jpeg" alt="Corporate dress" /><br>
+                    <h2>Corporate Dress</h2>
+                    <p>Command the room with confidence. This dress is a perfect blend of professional poise and modern style.</p>
+                </div>
+                <div class="product-card animate-on-scroll slide-left">
+                    <img src="/Images/Dinner 1.jpeg" alt="Dinner dress" /><br>
+                    <h2>Dinner Dress</h2>
+                    <p>Make a statement. From intimate dinners to special nights out, this dress is your perfect partner in elegance</p>
+                </div>
+                <div class="product-card animate-on-scroll slide-left">
+                    <img src="/Images/Short 3.jpeg" alt="Short dress" /><br>
+                    <h2>Short Dress</h2>
+                    <p>Simple, stylish, stunning. Throw on this casual short gown and you're ready for anything the day brings.</p>
+                </div>
+                <div class="product-card animate-on-scroll slide-left">
+                    <img src="/Images/Summer 2.jpeg" alt="Summer dress" /><br>
+                    <h2>Summer Dress</h2>
+                    <p>Your new summer favorite. Light, breezy, and effortlessly chic, it's designed for sun-kissed days and warm nights.</p>
+                </div>
+            </div>
+        </section>
+        <!--Lookbook Section-->
+        <h1> The Lookbook</h1>
+        <section id="Gallery">
+            
+            <img src="/Images/Short 5.jpeg" alt="Short dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Short 4.jpeg" alt="Short dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Short 3.jpeg" alt="Short dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Dinner 1.jpeg" alt="Dinner dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Dinner 2.jpeg" alt="Dinner dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Dinner 3.jpeg" alt="Dinner dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Dinner 4.jpeg" alt="Dinner dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/cd 5.jpeg" alt="Corporate dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/cd 4.jpeg" alt="Corporate dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/cd 3.jpeg" alt="Corporate dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/cd 1.jpeg" alt="Corporate dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Summer 2.jpeg" alt="Summer dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Summer 3.jpg" alt="Summer dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Summer 4.jpeg" alt="Summer dress" class="animate-on-scroll slide-right"/>
+            <img src="/Images/Summer 5.jpeg" alt="Summer dress" class="animate-on-scroll slide-right"/>
+        </section>
+        <section id="About">
+            <div class="text-content">
+                <h1>About V-Dresses</h1>
+                <p>V-Dresses was founded with a passion for creating beautiful, unique dresses that empower women to feel confident and stylish. We believe that every dress tells a story, and we are committed to crafting high-quality garments that are as special as the moments you wear them for. Our designs blend timeless elegance with modern flair, using carefully selected fabrics and meticulous attention to detail. Thank you for being a part of our journey!</p>
+            </div>
+            <div class="image">
+                <img src="/Images/studio.jpeg" alt="my studio" class="floated-image" />
+            </div>
+        </section>
+        <section id="Contact">
+            <div class="contact-header">
+                <h1>Contact Us</h1>
+            </div>
+            <div class="contact-p">
+                <p>You want to place an order?</p>
+            </div>
+            <div class="contact">
+                Phone number: +1148163655965 <br>
+                Email: dressstyle001@gmail.com <br>
+                Address: 123 Fashion Lane, Style City, SC 12345
+            </div>
+            <!--Social Media Links-->
+            <div class="Links">
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Facebook</a>
+            </div>
+        </section>
+        <!--Footer-->
+        <footer>
+            <div class="footer">
+                <p>&copy; 2025 V-Dresses. All Rights Reserved.</p>
+            </div>
+        </footer>
+        <script>
+            // Get all elements that have the 'animate-on-scroll' class
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            /**
+             * The callback function for the IntersectionObserver.
+             * It's called when an observed element enters or exits the viewport.
+             * @param {IntersectionObserverEntry[]} entries - An array of IntersectionObserverEntry objects.
+             */
+            const handleIntersection = (entries) => {
+                entries.forEach(entry => {
+                    // Check if the element is currently intersecting (i.e., visible)
+                    if (entry.isIntersecting) {
+                        // Add the 'is-visible' class to trigger the animation
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        entry.target.classList.remove('is-visible');
+                     }
+                });
+            };
+
+            // Create a new IntersectionObserver instance
+            const observer = new IntersectionObserver(handleIntersection, {
+                // The 'root' is the viewport, which is the default
+                root: null,
+                // A margin around the root. A negative margin can make the animation
+                // trigger a little earlier. 
+                rootMargin: '0px',
+                // The threshold is the percentage of the element that is visible
+                // to trigger the callback. 0.1 means 10% of the element is visible.
+                threshold: 0.1
+            });
+
+            // Loop through each element and tell the observer to watch it
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+
+        </script>
+    </body>
+</html>
