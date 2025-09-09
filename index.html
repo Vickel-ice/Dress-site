@@ -38,6 +38,11 @@
                 margin: 0 auto;
                 padding: 0 24px;
             }
+            @media (max-width:768px) {
+                .container {
+                    padding: 0 10px;
+                }
+            }
             nav {
                 background-color: #4B2C52;
                 padding: 20px 24px;
@@ -51,6 +56,11 @@
                 z-index: 1000;
                 
             }
+            @media (max-width: 768px) {
+                .nav {
+                    padding: 15px 24px;
+                }
+            }
             
             .header-name {
                 color: #f5f5f5;
@@ -58,11 +68,20 @@
                 font-weight: bold;
                 font-family: 'Playfair Display', serif;
            }
+            @media (max-width: 768px) {
+                .header-name {
+                    font-size: 24px;
+                }
+            }
            .topdiv {
             display: flex;
             gap: 10px;
            }
-          
+           @media (max-width: 768px) {
+                .topdiv {
+                    display: none;
+                }
+            }
            
            .topmenu {
             color: #B0E0E6;
@@ -122,22 +141,24 @@
             padding: 20px;
             color: #fff;
         }
-        @media (max-width: 480px) {
-            .topdiv {
-                display: none;
+        @media (max-width: 768px) {
+            #Hero-Section {
+                height: 70vh;
+                margin-top: 50px;
+               
             }
-            .Hero-Section {
-                background-position: 50% 25%;
+            .hero-left h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1.2em;
+            }
+            .hero-content a {
+                font-size: 1em;
+                padding: 10px 20px;
             }
         }
-        @media (min-width: 768px) {
-            .topdiv {
-                display: flex;
-            }
-            .Hero-Section {
-                background-position: 50% 25%;
-            }
-        }
+      
 
         /** CSS for scroll-in animation */
         .animate-on scroll {
@@ -240,11 +261,28 @@
             font-family: 'Roboto', sans-serif;
             font-size: 1.1em;
         }
-        @media (max-width: 600px) {
-            .product-card {
-                width: 100%;
+
+        @media (max-width:768px) {
+            .collection-grid {
+                justify-content: space-around;
+                gap: 15px;
             }
-            
+            .product-cards {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+             .product-cards img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+             }
+            .product-cards h2 {
+                font-size: 1.1em;
+                margin-top: 10px;
+            }
+             .product-cards p {
+                font-size: 0.8em;
+             }
         }
 
         #Gallery {
@@ -270,11 +308,11 @@
             @media (max-width: 768px) {
                 #Gallery {
                     grid-template-columns: repeat(2, 1fr);
+                    gap: 10px;
                 }
-            }
-            @media (max-width:480px) {
-                #Gallery {
-                    grid-template-columns: 1fr;
+                #Gallery img {
+                    height: 200px;
+                    object-fit: cover;
                 }
             }
             #About {
@@ -322,6 +360,26 @@
                     flex-direction: column;
                     gap: 20px;
                 }
+                .image {
+                    max-width: 100%;
+                    text-align: center;
+                }
+                .image img {
+                    width: 70%;
+                    height: 300px;
+                    float: none;
+                }
+                .text-content {
+                    max-width: 100%;
+                    padding: 0 10px;
+                }
+                .text-content h1 {
+                    font-size: 1.8em;
+                }
+                .text-content p {
+                    font-size: 1em;
+                }
+                
             }
             #Contact{
                 background-color: #f5f5f5;
@@ -351,6 +409,19 @@
             }
             .footer p {
                 font-family: 'Roboto', sans-serif;
+            }
+
+            @media (max-width: 480px) {
+                #Gallery {
+                    grid-template-columns: 1fr;
+                }
+                .product-card {
+                    width: 88%;
+                    max-width: 300px;
+                }
+                .collection-grid {
+                    justify-content: center;
+                }
             }
 
 
